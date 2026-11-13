@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  servlet:
+    context-path: ${CONTEXT_PATH:}
+  forward-headers-strategy: native
+
+spring:
+  application:
+    name: codrive-server
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/codrive}
+    username: ${DB_USERNAME:codrive}
+    password: ${DB_PASSWORD:codrive}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  thymeleaf:
+    cache: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+app:
+  public-base-url: ${PUBLIC_BASE_URL:http://localhost:8080}
+  qr-ttl-seconds: 300
+  join-request-ttl-seconds: 600
+  session-max-hours: 12
+  vehicle-grace-seconds: 30
+  vehicle-heartbeat-timeout-seconds: 35
+  command-timeout-seconds: 30
+  proposal-timeout-seconds: 60
+  max-participants: 3
+  geocoding:
+    enabled: ${GEOCODING_ENABLED:true}
+    base-url: https://nominatim.openstreetmap.org
+    user-agent: "${GEOCODING_USER_AGENT:codrive-connect/0.1 (set GEOCODING_USER_AGENT with a contact)}"

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="서버 주소"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etServer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textUri"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/rgMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rbMock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mock 모드 (시뮬레이션, 실제 차량 제어 안 함)"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/rbPleos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pleos SDK 모드 (Pleos Connect 환경 필요)"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <Switch
+        android:id="@+id/swDriving"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="주행 중 시뮬레이션 (Mock 모드)"
+        android:textSize="18sp" />
+
+</LinearLayout>

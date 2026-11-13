@@ -1,0 +1,21 @@
+# 빌드 산출물·IDE
+build/
+.gradle/
+bin/
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# 로컬 설정·비밀
+local.properties
+.env
+*.jks
+*.keystore
+*.apk
+*.aab
+
+# 저장소에 포함하지 않는 것
+deploy/
+assets/screenshots/demo/
+assets/screenshots/demo_map/

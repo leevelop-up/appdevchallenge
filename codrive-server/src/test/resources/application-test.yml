@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:codrive;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  thymeleaf:
+    cache: false
+
+app:
+  public-base-url: http://localhost
+  vehicle-grace-seconds: 2
+  vehicle-heartbeat-timeout-seconds: 60
+  command-timeout-seconds: 2
+  proposal-timeout-seconds: 8
+  qr-ttl-seconds: 300
+  geocoding:
+    enabled: false
