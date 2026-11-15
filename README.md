@@ -2,6 +2,8 @@
 
 # CO-DRIVE CONNECT
 
+**한 줄 소개**: 차량 화면의 QR로 동승자가 앱 설치 없이 참여하고, 운전자가 허용한 범위 안에서 목적지·음악을 요청하면 운전자의 수락·확인을 거쳐 차량에 적용하는 동승자 연동 서비스.
+
 차량에 설치한 CO-DRIVE 앱의 QR 코드로 동승자가 앱 설치 없이 휴대폰 웹에 접속하고, 운전자가 승인한 역할 범위 안에서 지도·공조·조명·음악 기능을 요청하는 서비스.
 
 ```
@@ -18,6 +20,29 @@
 ## 화면 캡처
 
 Pleos Connect 에뮬레이터의 차량 화면과 동승자 휴대폰 웹 화면은 `assets/screenshots/` 에 있다(`web-flow.png`·`car-flow.png`: 음악, `web-flow-map.png`·`car-flow-map.png`: 내비게이션, `web/`·`car/`: 원본).
+
+## APK
+
+- 위치: [`apk/이동현_CO-DRIVE_CONNECT_release.apk`](apk/이동현_CO-DRIVE_CONNECT_release.apk) (서명된 release, v0.1.0, 약 19MB)
+- 설치: `adb install -r apk/이동현_CO-DRIVE_CONNECT_release.apk` (Pleos Connect 에뮬레이터에서는 앱이 사용자 프로필 10 에서 실행되므로 `--user 10` 을 붙인다)
+- release 빌드는 설정 화면이 없고 PLEOS 모드로만 동작하며, 빌드할 때 지정한 서버(`-PcodriveServerUrl`)에 연결한다. 제출한 APK 는 심사 기간 동안 운영 중인 서버에 연결된다.
+- 제어 퍼미션(`CONTROL_CAR_*`)은 release 에 선언하지 않았으므로 공조·조명 변경은 동작하지 않는다. 음악과 내비게이션은 동작한다.
+
+## 개발·테스트 환경
+
+| 항목 | 내용 |
+|---|---|
+| Pleos Connect 에뮬레이터 | Pleos Connect AVD v2.1 (Android 14 Automotive, android-34, arm64-v8a), Android Emulator 37.2.13 이상 (구버전은 부팅 루프) |
+| 화면 규격 | 2560 × 1440 (가로), 160dpi, RAM 4GB |
+| 차량 SDK | Pleos Vehicle SDK 2.3.2, NaviHelper 3.0.5 |
+| 앱 | Java, minSdk 28, targetSdk 35, Gradle Wrapper |
+| 서버 | Java 21, Spring Boot 3.3, PostgreSQL 16 (개발·테스트는 H2) |
+
+필요한 설정
+- 서버: `PUBLIC_BASE_URL`(QR 에 들어가는 주소), DB 접속 정보. 장소 검색을 쓰려면 `GEOCODING_USER_AGENT` 에 연락처를 넣는다.
+- 앱(debug): 설정 화면에서 서버 주소와 모드(MOCK / PLEOS)를 고른다. 에뮬레이터에서는 호스트가 `10.0.2.2` 다.
+- 에뮬레이터: Virtual Console 이 열려 있어야 차량 값 변경(SET)이 반영된다. 화면을 켜 둔 채로 시험한다.
+- release 빌드: `-PcodriveServerUrl=https://...` 와 서명 속성(`RELEASE_STORE_FILE`, `RELEASE_STORE_PASSWORD`, `RELEASE_KEY_ALIAS`, `RELEASE_KEY_PASSWORD`)을 지정한다.
 
 ## 실행
 
