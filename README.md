@@ -15,9 +15,9 @@
 | `codrive-vehicle/` | Java Android 앱 (XML, MVVM, OkHttp WebSocket, Android Keystore, Pleos Vehicle 2.3.2 / NaviHelper 3.0.5) |
 | `docker-compose.yml` | 로컬 개발용 PostgreSQL + 서버 |
 
-## 시연 영상
+## 화면 캡처
 
-[assets/CO-DRIVE_CONNECT_demo.mp4](assets/CO-DRIVE_CONNECT_demo.mp4): Pleos Connect 에뮬레이터의 차량 화면과 동승자 휴대폰 웹을 나란히 녹화했다(① 음악: QR 참여 → 승인 → 역할 → 제어 권한 → 재생·다음 곡·일시정지, ② 내비게이션: 목적지 검색·제안 → 운전자 수락 → 차량 내비 안내 시작). 단계별 화면은 `assets/screenshots/` 에 있다(`web-flow.png`·`car-flow.png`: 음악, `web-flow-map.png`·`car-flow-map.png`: 내비게이션, `web/`·`car/`: 원본).
+Pleos Connect 에뮬레이터의 차량 화면과 동승자 휴대폰 웹 화면은 `assets/screenshots/` 에 있다(`web-flow.png`·`car-flow.png`: 음악, `web-flow-map.png`·`car-flow-map.png`: 내비게이션, `web/`·`car/`: 원본).
 
 ## 실행
 

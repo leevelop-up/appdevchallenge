@@ -19,3 +19,4 @@ local.properties
 deploy/
 assets/screenshots/demo/
 assets/screenshots/demo_map/
+*.mp4
